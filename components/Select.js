@@ -4,7 +4,10 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 export default function Select() {
   return (
     <View style={styles.container}>
-      <TouchableOpacity>1P ~ 2P</TouchableOpacity>
+      <TouchableOpacity
+        style={styles.selectBt}>
+        <Text style={styles.selectText}>1P ~ 2P</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -12,8 +15,22 @@ export default function Select() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#0070F4',
     alignItems: 'center',
     justifyContent: 'center',
+    width: "100%"
   },
+
+  selectBt: {
+    backgroundColor: "black",
+    borderRadius: 10,
+    width: 170,
+    height: 50
+  },
+
+  selectText: {
+    color: "#fff",
+    fontSize: 36,
+    textAlign: "center"
+  }  
 });
