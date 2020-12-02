@@ -6,7 +6,7 @@ export default function Select() {
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.selectBt}>
-        <Text style={styles.selectText}>1P ~ 2P</Text>
+        <Text style={styles.selectText}>1P - 2P</Text>
       </TouchableOpacity>
     </View>
   );
@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
   selectText: {
     color: "#fff",
     fontSize: 36,
-    textAlign: "center"
+    textAlign: "center",
+    margin: "auto"
   }  
 });
