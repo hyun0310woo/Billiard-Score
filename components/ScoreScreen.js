@@ -13,7 +13,6 @@ export default function Select() {
           <Text style={styles.user1}>1P</Text>
           <TextInput
             style={styles.scoreInput}
-            onChangeText={text => onChangeText(text)}
             value={point}>
           </TextInput>
         </View>
@@ -21,7 +20,6 @@ export default function Select() {
           <Text style={styles.user2}>2P</Text>
           <TextInput
             style={styles.scoreInput}
-            onChangeText={text => onChangeText(text)}
             value={point}>
           </TextInput>
         </View>
@@ -43,42 +41,34 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: "100%",
   },
-
   startText: {
       fontSize: 30,
       color: "#fff",
       fontWeight: "bold",
   },
-
   users: {
     flexDirection: "row"
   },
-
   user1Box: {
     flexDirection: 'column',
     marginRight: 150,
     alignItems: 'center',
   },
-
   user2Box: {
     flexDirection: 'column',
     marginLeft: 150,
     alignItems: 'center',
   },
-
   user1: {
     color: "#FFD600",
     fontSize: 40,
     fontWeight: "bold"
   },
-
   user2: {
     color: "#fff",
     fontSize: 40,
     fontWeight: "bold",
-
   },
-
   scoreInput: {
     backgroundColor: "#fff",
     width: 140,
@@ -88,13 +78,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize:50
   },
-  
   selectText: {
     fontWeight: "bold",
-
-
   },
-
   selectBt: {
       backgroundColor: "#fff",
       borderRadius: 8,
@@ -104,11 +90,8 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       // marginTop: 30
   },
-  
   endText: {
     color: "#fff",
     marginTop: 10
   }
-
-
 });
