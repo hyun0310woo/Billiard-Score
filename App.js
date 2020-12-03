@@ -3,13 +3,20 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Select from "./components/Select"
 import ScoreScreen from "./components/ScoreScreen"
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator(); 
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Select />
-      {/* <ScoreScreen /> */}
-    </View>
+    <NavigationContainer style={styles.container}>
+      <Stack.Navigator>
+        <Stack.Screen name="Select" component={Select} />
+        <Stack.Screen name="ScoreScreen" component={ScoreScreen} />
+      </Stack.Navigator>
+
+    </NavigationContainer>
   );
 }
 

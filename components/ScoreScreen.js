@@ -1,9 +1,14 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
 
-export default function Select() {
+export default function ScoreScreen() {
   const [point, setPoint] = useState(0);
 
+  const test = () => {
+    if(isNaN(point)) {
+      alert("숫자만 입력하세요.")
+    }
+  }
   
   return (
     <View style={styles.container}>
@@ -13,14 +18,18 @@ export default function Select() {
           <Text style={styles.user1}>1P</Text>
           <TextInput
             style={styles.scoreInput}
-            value={point}>
+            maxLength={2}
+            keyboardType="number-pad"
+            >
           </TextInput>
         </View>
         <View style={styles.user2Box}>
           <Text style={styles.user2}>2P</Text>
           <TextInput
             style={styles.scoreInput}
-            value={point}>
+            maxLength={2}
+            keyboardType="number-pad"
+            >
           </TextInput>
         </View>
       </View>

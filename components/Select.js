@@ -1,11 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default function Select() {
+export default function Select({ navigation }) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.selectBt}>
+      <TouchableOpacity style={styles.selectBt}
+      onPress={() => navigation.navigate("ScoreScreen")}>
         <Text style={styles.selectText}>1P - 2P</Text>
       </TouchableOpacity>
     </View>
