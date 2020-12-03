@@ -7,8 +7,8 @@ import ScoreScreen from "./components/ScoreScreen"
 export default function App() {
   return (
     <View style={styles.container}>
-      {/* <Select /> */}
-      <ScoreScreen />
+      <Select />
+      {/* <ScoreScreen /> */}
     </View>
   );
 }
