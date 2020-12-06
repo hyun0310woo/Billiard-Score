@@ -12,8 +12,8 @@ export default function App() {
   return (
     <NavigationContainer style={styles.container}>
       <Stack.Navigator>
-        <Stack.Screen name="Select" component={Select} />
-        <Stack.Screen name="ScoreScreen" component={ScoreScreen} />
+        <Stack.Screen name="Select" component={Select} options={{headerShown: false}} />
+        <Stack.Screen name="ScoreScreen" component={ScoreScreen} options={{headerShown: false}} />
       </Stack.Navigator>
 
     </NavigationContainer>
