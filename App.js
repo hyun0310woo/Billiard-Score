@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Select from "./components/Select"
 import ScoreScreen from "./components/ScoreScreen"
-import Test from "./components/Test"
+import Screen from "./components/Screen"
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -15,7 +15,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Select" component={Select} options={{headerShown: false}} />
         <Stack.Screen name="ScoreScreen" component={ScoreScreen} options={{headerShown: false}} />
-        <Stack.Screen name="Test" component={Test} options={{headerShown: false}} />
+        <Stack.Screen name="Screen" component={Screen} options={{headerShown: false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );

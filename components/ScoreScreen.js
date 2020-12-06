@@ -34,7 +34,7 @@ export default function ScoreScreen({ navigation }) {
       </View>
       <TouchableOpacity
         style={styles.selectBt}
-        onPress={() => navigation.navigate("Test", {user1Point: point1, user2Point: point2})}
+        onPress={() => navigation.navigate("Screen", {user1Point: point1, user2Point: point2})}
         >
         <Text style={styles.selectText}>확인</Text>
       </TouchableOpacity>
@@ -61,12 +61,12 @@ const styles = StyleSheet.create({
   },
   user1Box: {
     flexDirection: 'column',
-    marginRight: 150,
+    marginRight: 100,
     alignItems: 'center',
   },
   user2Box: {
     flexDirection: 'column',
-    marginLeft: 150,
+    marginLeft: 100,
     alignItems: 'center',
   },
   user1: {
