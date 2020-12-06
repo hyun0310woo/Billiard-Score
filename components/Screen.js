@@ -36,6 +36,7 @@ export default function Screen({ route }) {
           <TouchableOpacity style={styles.plus1Bt} onPress={plusUser1}>{point1}</TouchableOpacity>
           <TouchableOpacity style={styles.minusBt} onPress={minusUser1}>- 1</TouchableOpacity>
         </View>
+        <Timer />
         <View style={styles.user2Box}>
           <Text style={styles.userText}>2P 목표 점수 - { user2Point }</Text>
           <TouchableOpacity style={styles.plus2Bt} onPress={plustUser2}>{point2}</TouchableOpacity>
@@ -59,23 +60,23 @@ const styles = StyleSheet.create({
   }, 
 
   plus1Bt: {
-    width: 130,
-    height: 130,
+    width: 190,
+    height: 190,
     backgroundColor: "#242424",
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 80,
+    fontSize: 100,
     color: "#FFD600",
   },
   plus2Bt: {
-    width: 130,
-    height: 130,
+    width: 190,
+    height: 190,
     backgroundColor: "#242424",
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 80,
+    fontSize: 100,
     color: "#fff",
   },
   minusBt: {
@@ -94,12 +95,12 @@ const styles = StyleSheet.create({
   },
   user1Box: {
     flexDirection: 'column',
-    marginRight: 100,
+    marginRight: 40,
     alignItems: 'center',
   },
   user2Box: {
     flexDirection: 'column',
-    marginLeft: 100,
+    marginLeft: 40,
     alignItems: 'center',
   },
 });
