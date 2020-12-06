@@ -5,7 +5,6 @@ export default function ScoreScreen({ navigation }) {
   const [point1, setPoint1] = useState(0);
   const [point2, setPoint2] = useState(0);
 
-  console.log(point1, point2)
   return (
     <View style={styles.container}>
       <Text style={styles.startText}>목표 점수를 입력하세요.</Text>
@@ -35,7 +34,7 @@ export default function ScoreScreen({ navigation }) {
       </View>
       <TouchableOpacity
         style={styles.selectBt}
-        onPress={() => navigation.navigate("Test")} 
+        onPress={() => navigation.navigate("Test", {user1Point: point1, user2Point: point2})}
         >
         <Text style={styles.selectText}>확인</Text>
       </TouchableOpacity>
