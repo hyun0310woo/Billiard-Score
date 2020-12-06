@@ -1,15 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
 
-export default function ScoreScreen() {
-  const [point, setPoint] = useState(0);
+export default function ScoreScreen({ navigation }) {
+  const [point1, setPoint1] = useState(0);
+  const [point2, setPoint2] = useState(0);
 
-  const test = () => {
-    if(isNaN(point)) {
-      alert("숫자만 입력하세요.")
-    }
-  }
-  
+  console.log(point1, point2)
   return (
     <View style={styles.container}>
       <Text style={styles.startText}>목표 점수를 입력하세요.</Text>
@@ -20,6 +16,8 @@ export default function ScoreScreen() {
             style={styles.scoreInput}
             maxLength={2}
             keyboardType="number-pad"
+            onChangeText={point1 => setPoint1(point1)}
+            defaultValue={point1}
             >
           </TextInput>
         </View>
@@ -29,13 +27,17 @@ export default function ScoreScreen() {
             style={styles.scoreInput}
             maxLength={2}
             keyboardType="number-pad"
+            onChangeText={point2 => setPoint2(point2)}
+            defaultValue={point2}
             >
           </TextInput>
         </View>
       </View>
       <TouchableOpacity
-        style={styles.selectBt}>
-      <Text style={styles.selectText}>확인</Text>
+        style={styles.selectBt}
+        onPress={() => navigation.navigate("Test")} 
+        >
+        <Text style={styles.selectText}>확인</Text>
       </TouchableOpacity>
       <Text style={styles.endText}>점수를 1점 단위로 입력하세요.</Text>
     </View>
