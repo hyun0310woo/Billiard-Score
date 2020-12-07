@@ -6,8 +6,10 @@ export default function Screen({ route }) {
   const { user1Point } = route.params;
   const { user2Point } = route.params;
 
-  const [curUser, setCurUser] = useState(false);
-
+  const [currentUser1, setcurrentUser1] = useState(false);
+  const [currentUser2, setcurrentUser2] = useState(false);
+  
+  const [point, setPoint] = useState(0);
   const [point1, setPoint1] = useState(0);
   const [point2, setPoint2] = useState(0);
 
@@ -16,7 +18,7 @@ export default function Screen({ route }) {
     setPoint1(point1 + 1);
   }
 
-  const plustUser2 = () => {
+  const plusUser2 = () => {
     setPoint2(point2 + 1);
   }
 
@@ -28,19 +30,64 @@ export default function Screen({ route }) {
     setPoint2(point2 - 1);
   }
 
+  const currentUser1Time = () => {
+    setcurrentUser1(true);
+    setcurrentUser2(false);
+  }
+
+  const currentUser2Time = () => {
+    setcurrentUser2(true);
+    setcurrentUser1(false);
+  }
+
+  const plusUser1Func = () => {
+    plusUser1();
+    currentUser1Time()
+  }
+
+  const plusUser2Func = () => {
+    plusUser2();
+    currentUser2Time()
+  }
+
+  const minusUser1Func = () => {
+    minusUser1();
+    currentUser1Time()
+  }
+
+  const minusUser2Func = () => {
+    minusUser2();
+    currentUser2Time()
+  }
+
+
+
+  // useEffect( () => {
+  //   // console.log(currentUser1, currentUser2)
+  //   if(currentUser1) {
+  //     setPoint(point + 1);
+  //   } else {
+  //     setPoint(0);
+  //   }
+  // } 
+  // )
+  
+
   return (
     <View style={styles.container}>
       <View style={styles.users}>
         <View style={styles.user1Box}>
           <Text style={styles.userText}>1P 목표 점수 - { user1Point }</Text>
-          <TouchableOpacity style={styles.plus1Bt} onPress={plusUser1}>{point1}</TouchableOpacity>
-          <TouchableOpacity style={styles.minusBt} onPress={minusUser1}>- 1</TouchableOpacity>
+          <TouchableOpacity style={styles.plus1Bt} onPress={plusUser1Func}>{point1}</TouchableOpacity>
+          <TouchableOpacity style={styles.minusBt} onPress={minusUser1Func}>- 1</TouchableOpacity>
+          <Text style={styles.currentScore}>{currentUser1 ? point : 0}</Text>
         </View>
         <Timer />
         <View style={styles.user2Box}>
           <Text style={styles.userText}>2P 목표 점수 - { user2Point }</Text>
-          <TouchableOpacity style={styles.plus2Bt} onPress={plustUser2}>{point2}</TouchableOpacity>
-          <TouchableOpacity style={styles.minusBt} onPress={minusUser2}>- 1</TouchableOpacity>        
+          <TouchableOpacity style={styles.plus2Bt} onPress={plusUser2Func}>{point2}</TouchableOpacity>
+          <TouchableOpacity style={styles.minusBt} onPress={minusUser2Func}>- 1</TouchableOpacity>
+          <Text style={styles.currentScore}>{currentUser2 ? "참" : ""}</Text>        
         </View>
       </View>
     </View>
@@ -91,7 +138,7 @@ const styles = StyleSheet.create({
     color: "#fff"
   },
   users: {
-    flexDirection: "row"
+    flexDirection: "row",
   },
   user1Box: {
     flexDirection: 'column',
@@ -103,4 +150,14 @@ const styles = StyleSheet.create({
     marginLeft: 40,
     alignItems: 'center',
   },
+  currentScore: {
+    position: "absolute",
+    marginTop: 150,
+    marginLeft: 130,
+    width:60,
+    height: 60,
+    backgroundColor: "#fff",
+    borderRadius: 8,
+    fontSize: 30
+  }
 });
