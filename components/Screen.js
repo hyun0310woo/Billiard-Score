@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Timer from "./Timer"
+import Timer from "./Stopwatch"
 import { StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
+import Stopwatch from './Stopwatch';
 
 export default function Screen({ route }) {
   const { user1Point } = route.params;
@@ -53,6 +54,7 @@ export default function Screen({ route }) {
   const minusUser1Func = () => {
     minusUser1();
     currentUser1Time()
+
   }
 
   const minusUser2Func = () => {
@@ -60,34 +62,24 @@ export default function Screen({ route }) {
     currentUser2Time()
   }
 
+  console.log("유저1: ", currentUser1, "유저2: ", currentUser2)
 
-
-  // useEffect( () => {
-  //   // console.log(currentUser1, currentUser2)
-  //   if(currentUser1) {
-  //     setPoint(point + 1);
-  //   } else {
-  //     setPoint(0);
-  //   }
-  // } 
-  // )
-  
 
   return (
     <View style={styles.container}>
       <View style={styles.users}>
         <View style={styles.user1Box}>
-          <Text style={styles.userText}>1P 목표 점수 - { user1Point }</Text>
+          <Text style={styles.userText}>{`1P 목표 점수 - ${ user1Point }`}</Text>
           <TouchableOpacity style={styles.plus1Bt} onPress={plusUser1Func}>{point1}</TouchableOpacity>
-          <TouchableOpacity style={styles.minusBt} onPress={minusUser1Func}>- 1</TouchableOpacity>
-          <Text style={styles.currentScore}>{currentUser1 ? point : 0}</Text>
+          <TouchableOpacity style={styles.minusBt} onPress={minusUser1Func}><Text>- 1</Text></TouchableOpacity>
+          <Text style={styles.currentScore}>{point}</Text>
         </View>
-        <Timer />
+        {/* <Stopwatch /> */}
         <View style={styles.user2Box}>
-          <Text style={styles.userText}>2P 목표 점수 - { user2Point }</Text>
+          <Text style={styles.userText}>{`1P 목표 점수 - ${ user1Point }`}</Text>
           <TouchableOpacity style={styles.plus2Bt} onPress={plusUser2Func}>{point2}</TouchableOpacity>
-          <TouchableOpacity style={styles.minusBt} onPress={minusUser2Func}>- 1</TouchableOpacity>
-          <Text style={styles.currentScore}>{currentUser2 ? "참" : ""}</Text>        
+          <TouchableOpacity style={styles.minusBt} onPress={minusUser2Func}><Text>- 1</Text></TouchableOpacity>
+          <Text style={styles.currentScore}>{currentUser2 ? "참" : "0"}</Text>        
         </View>
       </View>
     </View>
@@ -152,12 +144,13 @@ const styles = StyleSheet.create({
   },
   currentScore: {
     position: "absolute",
-    marginTop: 150,
+    marginTop: 155,
     marginLeft: 130,
-    width:60,
-    height: 60,
+    width:50,
+    height: 50,
     backgroundColor: "#fff",
     borderRadius: 8,
-    fontSize: 30
+    fontSize: 30,
+    justifyContent: 'center',
   }
 });

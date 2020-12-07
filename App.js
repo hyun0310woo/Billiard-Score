@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Select from "./components/Select"
 import ScoreScreen from "./components/ScoreScreen"
 import Screen from "./components/Screen"
+import Stopwatch from "./components/Stopwatch"
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -16,6 +17,7 @@ export default function App() {
         <Stack.Screen name="Select" component={Select} options={{headerShown: false}} />
         <Stack.Screen name="ScoreScreen" component={ScoreScreen} options={{headerShown: false}} />
         <Stack.Screen name="Screen" component={Screen} options={{headerShown: false}} />
+        {/* <Stack.Screen name="Stopwatch" component={Stopwatch} options={{headerShown: false}} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
