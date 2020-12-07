@@ -16,7 +16,7 @@ export default function ScoreScreen({ navigation }) {
             maxLength={2}
             keyboardType="number-pad"
             onChangeText={point1 => setPoint1(point1)}
-            defaultValue={point1}
+            // defaultValue={point1}
             >
           </TextInput>
         </View>
@@ -27,7 +27,7 @@ export default function ScoreScreen({ navigation }) {
             maxLength={2}
             keyboardType="number-pad"
             onChangeText={point2 => setPoint2(point2)}
-            defaultValue={point2}
+            // defaultValue={point2}
             >
           </TextInput>
         </View>

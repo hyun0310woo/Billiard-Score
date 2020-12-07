@@ -1,85 +1,84 @@
 import React, { useState, useEffect } from 'react';
 import Timer from "./Stopwatch"
-import { StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Button, Image } from 'react-native';
 import Stopwatch from './Stopwatch';
 
 export default function Screen({ route }) {
-  const { user1Point } = route.params;
-  const { user2Point } = route.params;
+  const { user1Point } = route.params; // 목표 점수 받아옴 유저1
+  const { user2Point } = route.params; // 목표 점수 받아옴 유저2
 
-  const [currentUser1, setcurrentUser1] = useState(false);
-  const [currentUser2, setcurrentUser2] = useState(false);
+  const [currentUser1, setCurrentUser1] = useState(true); // 유저1이 현재 진행 중인지 확인
+  const [currentUser2, setCurrentUser2] = useState(true); // 유저2가 현재 진행 중인지 확인
   
-  const [point, setPoint] = useState(0);
-  const [point1, setPoint1] = useState(0);
-  const [point2, setPoint2] = useState(0);
+  const [curPoint1, setCurPoint1] = useState(0); // 현재 유저1의 점수
+  const [curPoint2, setCurPoint2] = useState(0); // 현재 유저2의 점수
+
+  const [point1, setPoint1] = useState(0); // 유저 1의 토탈 점수
+  const [point2, setPoint2] = useState(0); // 유저 2의 토탈 점수 
 
 
-  const plusUser1 = () => {
+  const plusUser1 = () => { // 유저1 포인트 업
     setPoint1(point1 + 1);
   }
 
-  const plusUser2 = () => {
+  const plusUser2 = () => { // 유저2 포인트 업
     setPoint2(point2 + 1);
   }
 
-  const minusUser1 = () => {
+  const minusUser1 = () => { // 유저1 포인트 다운
     setPoint1(point1 - 1);
   }
 
-  const minusUser2 = () => {
+  const minusUser2 = () => { // 유저2 포인트 다운
     setPoint2(point2 - 1);
   }
 
-  const currentUser1Time = () => {
-    setcurrentUser1(true);
-    setcurrentUser2(false);
+  const currentUser1Time = () => { // 유저 1이 현재 진행중일 때 현재 진행을 true로 하고 유저2는 false로 변경
+    setCurrentUser1(true);
+    setCurrentUser2(false);
   }
 
-  const currentUser2Time = () => {
-    setcurrentUser2(true);
-    setcurrentUser1(false);
+  const currentUser2Time = () => { //  유저 2이 현재 진행중일 때 현재 진행을 true로 하고 유저1는 false로 변경
+    setCurrentUser2(true);
+    setCurrentUser1(false);
   }
 
-  const plusUser1Func = () => {
+  const plusUser1Func = () => { // 유저1 핸들러 카운트를 올려주고 현제 진행을 true로 바꿔준다
     plusUser1();
     currentUser1Time()
   }
 
-  const plusUser2Func = () => {
+  const plusUser2Func = () => { // 유저2 핸들러 카운트를 올려주고 현제 진행을 true로 바꿔준다
     plusUser2();
     currentUser2Time()
   }
 
-  const minusUser1Func = () => {
+  const minusUser1Func = () => { // 유저1 핸들러 카운트를 내려주고 현제 진행을 true로 바꿔준다 유저2은 false로 바꿔준다
     minusUser1();
     currentUser1Time()
 
   }
 
-  const minusUser2Func = () => {
+  const minusUser2Func = () => { // 유저2 핸들러 카운트를 내려주고 현제 진행을 true로 바꿔준다 유저1은 false로 바꿔준다
     minusUser2();
     currentUser2Time()
   }
-
-  console.log("유저1: ", currentUser1, "유저2: ", currentUser2)
-
 
   return (
     <View style={styles.container}>
       <View style={styles.users}>
         <View style={styles.user1Box}>
           <Text style={styles.userText}>{`1P 목표 점수 - ${ user1Point }`}</Text>
-          <TouchableOpacity style={styles.plus1Bt} onPress={plusUser1Func}>{point1}</TouchableOpacity>
-          <TouchableOpacity style={styles.minusBt} onPress={minusUser1Func}><Text>- 1</Text></TouchableOpacity>
-          <Text style={styles.currentScore}>{point}</Text>
+          <TouchableOpacity style={Number(user1Point) !== Number(point1) ? styles.plus1Bt : styles.plus1BtActive} onPress={plusUser1Func}>{Number(user1Point) === Number(point1) ? <Image style={styles.tinyLogo} source={require("../images/winner1.png") }/> : point1}</TouchableOpacity>
+          <TouchableOpacity style={styles.minusBt} onPress={minusUser1Func}><Text style={styles.text}>- 1</Text></TouchableOpacity>
+          {/* <Text style={styles.currentScore}>{curPoint1}</Text> */}
         </View>
         {/* <Stopwatch /> */}
         <View style={styles.user2Box}>
-          <Text style={styles.userText}>{`1P 목표 점수 - ${ user1Point }`}</Text>
-          <TouchableOpacity style={styles.plus2Bt} onPress={plusUser2Func}>{point2}</TouchableOpacity>
-          <TouchableOpacity style={styles.minusBt} onPress={minusUser2Func}><Text>- 1</Text></TouchableOpacity>
-          <Text style={styles.currentScore}>{currentUser2 ? "참" : "0"}</Text>        
+          <Text style={styles.userText}>{`2P 목표 점수 - ${ user2Point }`}</Text>
+          <TouchableOpacity style={Number(user2Point) !== Number(point2) ? styles.plus2Bt : styles.plus2BtActive} onPress={plusUser2Func}>{Number(user2Point) === Number(point2) ? <Image style={styles.tinyLogo} source={require("../images/winner1.png") }/> : point2}</TouchableOpacity>
+          <TouchableOpacity style={styles.minusBt} onPress={minusUser2Func}><Text style={styles.text}>- 1</Text></TouchableOpacity>
+          {/* <Text style={styles.currentScore}>{curPoint2}</Text>         */}
         </View>
       </View>
     </View>
@@ -96,6 +95,7 @@ const styles = StyleSheet.create({
   },
   userText: {
     color: "#fff",
+    fontWeight: "bold"
   }, 
 
   plus1Bt: {
@@ -108,6 +108,14 @@ const styles = StyleSheet.create({
     fontSize: 100,
     color: "#FFD600",
   },
+  plus1BtActive: {
+    width: 190,
+    height: 190,
+    backgroundColor: "#fff",
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   plus2Bt: {
     width: 190,
     height: 190,
@@ -118,6 +126,14 @@ const styles = StyleSheet.create({
     fontSize: 100,
     color: "#fff",
   },
+  plus2BtActive: {
+    width: 190,
+    height: 190,
+    backgroundColor: "#fff",
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   minusBt: {
     width: 130,
     height: 30,
@@ -126,8 +142,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: 20,
-    color: "#fff"
   },
   users: {
     flexDirection: "row",
@@ -152,5 +166,16 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     fontSize: 30,
     justifyContent: 'center',
-  }
+  },
+  text: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: "#fff",
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
+  tinyLogo: {
+    width: 90,
+    height: 90,
+  },
 });
