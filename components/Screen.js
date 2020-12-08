@@ -68,14 +68,14 @@ export default function Screen({ route }) {
     <View style={styles.container}>
       <View style={styles.users}>
         <View style={styles.user1Box}>
-          <Text style={styles.userText}>{`1P 목표 점수 - ${ user1Point }`}</Text>
+          <Text style={styles.userText}>{`1P 목표 점수 : ${ user1Point }`}</Text>
           <TouchableOpacity style={Number(user1Point) !== Number(point1) ? styles.plus1Bt : styles.plus1BtActive} onPress={plusUser1Func}>{Number(user1Point) === Number(point1) ? <Image style={styles.tinyLogo} source={require("../images/winner1.png") }/> : point1}</TouchableOpacity>
           <TouchableOpacity style={styles.minusBt} onPress={minusUser1Func}><Text style={styles.text}>- 1</Text></TouchableOpacity>
           {/* <Text style={styles.currentScore}>{curPoint1}</Text> */}
         </View>
         {/* <Stopwatch /> */}
         <View style={styles.user2Box}>
-          <Text style={styles.userText}>{`2P 목표 점수 - ${ user2Point }`}</Text>
+          <Text style={styles.userText}>{`2P 목표 점수 : ${ user2Point }`}</Text>
           <TouchableOpacity style={Number(user2Point) !== Number(point2) ? styles.plus2Bt : styles.plus2BtActive} onPress={plusUser2Func}>{Number(user2Point) === Number(point2) ? <Image style={styles.tinyLogo} source={require("../images/winner1.png") }/> : point2}</TouchableOpacity>
           <TouchableOpacity style={styles.minusBt} onPress={minusUser2Func}><Text style={styles.text}>- 1</Text></TouchableOpacity>
           {/* <Text style={styles.currentScore}>{curPoint2}</Text>         */}
