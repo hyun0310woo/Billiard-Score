@@ -18,18 +18,17 @@ class List extends Component {
 
 const styles = StyleSheet.create({
     scroll: {
-        maxHeight: "63%",
-        backgroundColor: "#C89933",
+        maxHeight: "60%",
+        backgroundColor: "#fff",
+        borderRadius: 8
     },
 
     item: {
         padding: 10,
-        fontSize: 22,
+        fontSize: 18,
         height: 44,
-        color: "#5C415D",
+        color: "black",
         textAlign: "center",
-        backgroundColor: "#fff",
-        marginBottom: 1
     },
 })
 

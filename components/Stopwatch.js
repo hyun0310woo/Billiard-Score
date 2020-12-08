@@ -56,7 +56,7 @@ class Stopwatch extends Component {
                         min: ++this.state.min
                     });
                 }
-            }, 1);
+            }, 60000);
 
         } else {
             clearInterval(this.interval);
@@ -89,9 +89,9 @@ class Stopwatch extends Component {
                 </View>
 
                 <View style={styles.buttonParent}>
-                    <TouchableOpacity style={styles.button} onPress={this.handleReset}><Text style={styles.buttonText}>Reset</Text></TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={this.handleToggle}><Text style={styles.buttonText}>{!this.state.start? 'Start': 'Stop'}</Text></TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={()=>this.handleLap(this.state.min, this.state.sec, this.state.msec)} disabled={!this.state.start}><Text style={styles.buttonText}>Lap</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.button1 } onPress={this.handleReset}><Text style={styles.buttonText}>Reset</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.button2 } onPress={this.handleToggle}><Text style={styles.buttonText}>{!this.state.start? 'Start': 'Stop'}</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.button3 } onPress={()=>this.handleLap(this.state.min, this.state.sec, this.state.msec)} disabled={!this.state.start}><Text style={styles.buttonText}>Lap</Text></TouchableOpacity>
                 </View>
 
                 <List lap={this.lapArr} />
@@ -99,56 +99,59 @@ class Stopwatch extends Component {
             </View>
         );
     }
-
-
 }
 
 const styles = StyleSheet.create({
-
+    container : {
+    },
     parent: {
         display: "flex",
         flexDirection: "row",
-        borderWidth:1,
-        borderRadius: 80,
-        borderColor: "#694966",
-        backgroundColor: '#694966',
-        paddingLeft: "6%",
-        paddingRight: "6%",
-        paddingTop: ".5%",
-        paddingBottom: ".5%",
-        maxWidth: "63%"
+        borderRadius: 8,
+        backgroundColor: '#fff',
     },
 
     child: {
-      fontSize: 36,
-      color: "#C89933",
+      fontSize: 25,
+      color: "black",
     },
 
     buttonParent: {
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-around",
-        marginTop: "12%",
-        marginBottom: "16%"
+        marginTop: "3%",
+        marginBottom: "5%"
     },
 
-    button: {
-        backgroundColor: "#694966",
-        paddingTop: "5%",
-        paddingBottom: "5%",
-        paddingLeft: "5%",
-        paddingRight: "5%",
+    button1: {
+        backgroundColor: "#fff",
         display: "flex",
-        borderRadius: 20,
-        borderWidth: 1,
-        borderColor: "#694966",
-        height: 60,
+        height: 30,
+        width: 55,
+        borderTopLeftRadius: 8,
+        borderBottomLeftRadius: 8
     },
+    button2: {
+      backgroundColor: "#fff",
+      display: "flex",
+      height: 30,
+      width: 55
+  },
+  button3: {
+    backgroundColor: "#fff",
+    display: "flex",
+    height: 30,
+    width: 55,
+    borderTopRightRadius: 8,
+    borderBottomRightRadius: 8
+},
 
     buttonText: {
-        color: "#C89933",
+        color: "black",
         fontSize: 20,
-        alignSelf: "center"
+        alignSelf: "center",
+        justifyContent: 'center',
     }
 });
 

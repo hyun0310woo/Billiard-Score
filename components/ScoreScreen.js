@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
 
 export default function ScoreScreen({ navigation }) {
@@ -16,7 +16,6 @@ export default function ScoreScreen({ navigation }) {
             maxLength={2}
             keyboardType="number-pad"
             onChangeText={point1 => setPoint1(point1)}
-            // defaultValue={point1}
             >
           </TextInput>
         </View>
@@ -27,7 +26,6 @@ export default function ScoreScreen({ navigation }) {
             maxLength={2}
             keyboardType="number-pad"
             onChangeText={point2 => setPoint2(point2)}
-            // defaultValue={point2}
             >
           </TextInput>
         </View>
@@ -98,7 +96,6 @@ const styles = StyleSheet.create({
       height: 30,
       alignItems: 'center',
       justifyContent: 'center',
-      // marginTop: 30
   },
   endText: {
     color: "#fff",

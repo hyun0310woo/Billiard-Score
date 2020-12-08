@@ -64,6 +64,8 @@ export default function Screen({ route }) {
     currentUser2Time()
   }
 
+
+
   return (
     <View style={styles.container}>
       <View style={styles.users}>
