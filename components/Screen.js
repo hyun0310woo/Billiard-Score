@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Timer from "./Stopwatch"
 import { StyleSheet, Text, View, TouchableOpacity, Button, Image } from 'react-native';
-import Stopwatch from './Stopwatch';
+import Stopwatch from "./Stopwatch"
 
 export default function Screen({ route }) {
   const { user1Point } = route.params; // 목표 점수 받아옴 유저1
@@ -73,7 +73,7 @@ export default function Screen({ route }) {
           <TouchableOpacity style={styles.minusBt} onPress={minusUser1Func}><Text style={styles.text}>- 1</Text></TouchableOpacity>
           {/* <Text style={styles.currentScore}>{curPoint1}</Text> */}
         </View>
-        {/* <Stopwatch /> */}
+        <Stopwatch />
         <View style={styles.user2Box}>
           <Text style={styles.userText}>{`2P 목표 점수 : ${ user2Point }`}</Text>
           <TouchableOpacity style={Number(user2Point) !== Number(point2) ? styles.plus2Bt : styles.plus2BtActive} onPress={plusUser2Func}>{Number(user2Point) === Number(point2) ? <Image style={styles.tinyLogo} source={require("../images/winner1.png") }/> : point2}</TouchableOpacity>
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   minusBt: {
-    width: 130,
+    width: 190,
     height: 30,
     backgroundColor: "#4D4D4D",
     marginTop: 5,
