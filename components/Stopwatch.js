@@ -56,7 +56,7 @@ class Stopwatch extends Component {
                         min: ++this.state.min
                     });
                 }
-            }, 60000);
+            }, 1);
 
         } else {
             clearInterval(this.interval);
