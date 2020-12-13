@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Timer from "./Stopwatch"
 import { StyleSheet, Text, View, TouchableOpacity, Button, Image } from 'react-native';
 import Stopwatch from "./Stopwatch"
 
